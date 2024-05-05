@@ -15,13 +15,19 @@ let weather = {
     const { icon, description } = data.weather[0];
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
-    console.log(name, icon, description, temp, humidity, speed);
+
+     // Round temperature and wind speed to remove decimal points
+     const roundedTemp = temp.toFixed(0); 
+     const roundedSpeed = speed.toFixed(0); 
+
     document.querySelector(".city").innerText = "Weather in " + name;
     document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
     document.querySelector(".description").innerText = description;
-    document.querySelector(".temp").innerText = temp + "°F";
+    document.querySelector(".temp").innerText = roundedTemp + "°F";
     document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
-    document.querySelector(".wind").innerText = "Wind speed: " + speed + " mph";
+    document.querySelector(".wind").innerText = "Wind speed: " +  roundedSpeed + " mph";
+      document.querySelector(".weather").classList.remove("loading");
+     document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')"
 },
 search: function (){
   this.fetchWeather(document.querySelector(".search-bar").value);
@@ -38,3 +44,5 @@ document.querySelector(".search-bar").addEventListener("keyup", function (event)
     weather.search();
   }
 })
+
+weather.fetchWeather("Abidjan");
