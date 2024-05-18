@@ -28,6 +28,7 @@ body {
   justify-content: center;
 
 }
+
 button {
   margin: .5em;
   border-radius: 50%;
@@ -56,6 +57,7 @@ input.search-bar {
 button:hover {
   background: #7c7c7c6b;
 }
+
 h1.temp {
   margin: 0;
   margin-bottom: 0.4em;
@@ -73,9 +75,9 @@ h1.temp {
 }
 
 .weather.loading {
- visibility: hidden; 
- max-height: 20px;
- position: relative;
+  visibility: hidden;
+  max-height: 20px;
+  position: relative;
 }
 
 .weather.loading:after {
@@ -87,4 +89,3 @@ h1.temp {
   left: 20px;
 
 }
- 
